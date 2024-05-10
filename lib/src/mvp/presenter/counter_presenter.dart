@@ -1,34 +1,26 @@
 import 'package:architecture_patterns/src/mvp/model/counter_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final counterProvider =
-    StateProvider<CounterModel>(
-        (ref) => CounterModel(0));
+final counterProvider = ChangeNotifierProvider((ref) => CounterProvider(0));
 
-class CounterPresenter {
-  final WidgetRef ref;
-  final CounterModel model;
+class CounterProvider extends ChangeNotifier {
+  int count;
+  CounterProvider(this.count);
 
-  CounterPresenter(this.ref, this.model);
-
-  int get count => model.count;
 
   void increment() {
-    model.increment();
-    updateUI();
+    count++;
+    notifyListeners();
   }
 
   void decrement() {
-    model.decrement();
-    updateUI();
+    count--;
+    notifyListeners();
   }
 
   void reset() {
-    model.reset();
-    updateUI();
-  }
-
-  void updateUI() {
-    ref.read(counterProvider.notifier).state = model;
+    count = 0;
+    notifyListeners();
   }
 }

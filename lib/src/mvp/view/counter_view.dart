@@ -7,8 +7,7 @@ class CounterPageMVP extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counter = ref.watch(counterProvider);
-    final presenter = CounterPresenter(ref, counter);
+    final presenter = ref.watch(counterProvider);
 
     return Scaffold(
       appBar: AppBar(

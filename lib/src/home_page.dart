@@ -58,7 +58,7 @@ class HomePage extends StatelessWidget {
     // Reset Coounter MVC
     CounterController(ref.read(counterModelProvider)).reset();
     // Reset Coounter MVP
-    CounterPresenter(ref, ref.read(counterProvider)).reset();
+    ref.read(counterProvider).reset();
     // Reset Coounter MVVM
     ref.read(counterProviderVM.notifier).reset();
   }
