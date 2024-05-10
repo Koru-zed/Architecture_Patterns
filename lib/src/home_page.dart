@@ -55,10 +55,11 @@ class HomePage extends StatelessWidget {
   }
 
   void _reset(WidgetRef ref) {
-    final counterControllerMVC =
-        CounterController(ref.read(counterModelProvider));
-    counterControllerMVC.reset();
-    ref.read(counterPresenterProvider.notifier).reset();
-    ref.read(counterVMProvider.notifier).reset();
+    // Reset Coounter MVC
+    CounterController(ref.read(counterModelProvider)).reset();
+    // Reset Coounter MVP
+    CounterPresenter(ref, ref.read(counterProvider)).reset();
+    // Reset Coounter MVVM
+    ref.read(counterProviderVM.notifier).reset();
   }
 }

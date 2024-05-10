@@ -1,7 +1,7 @@
 import 'package:architecture_patterns/src/mvvm/model/counter_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final counterVMProvider = StateNotifierProvider<CounterVM, CounterModel>(
+final counterProviderVM = StateNotifierProvider<CounterVM, CounterModel>(
     (ref) => CounterVM(CounterModel()));
 
 class CounterVM extends StateNotifier<CounterModel> {

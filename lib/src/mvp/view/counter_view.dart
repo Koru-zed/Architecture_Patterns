@@ -7,7 +7,8 @@ class CounterPageMVP extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counterPresenter = ref.watch(counterPresenterProvider);
+    final counter = ref.watch(counterProvider);
+    final presenter = CounterPresenter(ref, counter);
 
     return Scaffold(
       appBar: AppBar(
@@ -21,7 +22,7 @@ class CounterPageMVP extends ConsumerWidget {
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Text(
-              '${counterPresenter.count}',
+              '${presenter.count}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
@@ -32,7 +33,7 @@ class CounterPageMVP extends ConsumerWidget {
         children: <Widget>[
           FloatingActionButton(
             onPressed: () =>
-                ref.read(counterPresenterProvider.notifier).increment(),
+                presenter.increment(),
             heroTag: 'Increment MVP',
             tooltip: 'Increment',
             child: const Icon(Icons.add),
@@ -40,7 +41,7 @@ class CounterPageMVP extends ConsumerWidget {
           const SizedBox(width: 10),
           FloatingActionButton(
             onPressed: () =>
-                ref.read(counterPresenterProvider.notifier).decrement(),
+                presenter.decrement(),
             heroTag: 'Decrement MVP',
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),

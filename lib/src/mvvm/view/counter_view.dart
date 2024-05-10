@@ -7,7 +7,7 @@ class CounterPageMVVM extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counterVM = ref.watch(counterVMProvider);
+    final counterVM = ref.watch(counterProviderVM);
 
     return Scaffold(
       appBar: AppBar(
@@ -33,14 +33,14 @@ class CounterPageMVVM extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-            onPressed: () => ref.read(counterVMProvider.notifier).increment(),
+            onPressed: () => ref.read(counterProviderVM.notifier).increment(),
             heroTag: 'Increment MVVM',
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
           const SizedBox(width: 10),
           FloatingActionButton(
-            onPressed: () => ref.read(counterVMProvider.notifier).decrement(),
+            onPressed: () => ref.read(counterProviderVM.notifier).decrement(),
             heroTag: 'Decrement MVVM',
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),

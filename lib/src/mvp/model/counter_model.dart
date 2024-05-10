@@ -10,4 +10,8 @@ class CounterModel {
   void decrement() {
     count--;
   }
+
+  void reset() {
+    count = 0;
+  }
 }

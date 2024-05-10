@@ -8,8 +8,7 @@ class CounterPageMVC extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final counterModel = ref.watch(counterModelProvider);
-    final counterController = CounterController(counterModel);
+    final counterController = CounterController(ref.watch(counterModelProvider));
 
     return Scaffold(
       appBar: AppBar(
@@ -24,7 +23,7 @@ class CounterPageMVC extends ConsumerWidget {
           children: <Widget>[
             const Text('You have pushed the button this many times:'),
             Text(
-              '${counterModel.count}',
+              '${counterController.count}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
