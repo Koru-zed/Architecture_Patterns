@@ -22,4 +22,25 @@ The difference is the ``Translator`` :
 
 - **MVP Have Presenter** : The Presenter receives the input from users via View, then processes the user’s data with the help of Model and passes the results back to the View. The presenter communicates with the view through an interface. The interface is defined in the presenter class, to which it passes the required data. Activity/fragment or any other view component implements this interface and renders the data in a way they want. In the MVP design pattern, the presenter manipulates the model and also updates the view. In MVP View and Presenter are completely decoupled from each other’s and communicate with each other’s by an interface. Because decoupling mocking of the view is easier and unit testing of applications that leverage the MVP design pattern over the MVC design pattern is much easier.
 
-- **MVC Have ViewModel** : It is responsible for exposing methods, commands, and other properties that help to maintain the state of the view, manipulate the model as the result of actions on the view, and trigger events in the view itself. View has a reference to View-Model but View-Model has no information about the View. There is a many-to-one relationship between View and View-Model means many Views can be mapped to one View-Model. It is completely independent of Views. The bi-directional data binding or the two-way data binding between the view and the View-Model ensures that the models and properties in the View-Model is in sync with the view. The MVVM design pattern is well suited to applications that need support for bi-directional data binding.
+- **MVC Have ViewModel** : It is responsible for exposing methods, commands, and other properties that help to maintain the state of the view, manipulate the model as the result of actions on the view, and trigger events in the view itself. View has a reference to View-Model but View-Model has no information about the View. There is a many-to-one relationship between View and View-Model, which means many Views can be mapped to one View-Model. It is completely independent of Views. The bi-directional data binding or the two-way data binding between the view and the View-Model ensures that the models and properties in the View-Model is in sync with the view. The MVVM design pattern is well suited to applications that need support for bi-directional data binding.
+
+## Code Example :
+1. **Clone the Repository:**
+    ```bash
+    git clone https://github.com/Koru-zed/Architecture_Patterns.git
+    ```
+
+2. **Navigate to the Project Directory:**
+    ```bash
+    cd Achitecture_Patterns
+    ```
+
+3. **Install Dependencies:**
+    ```bash
+    flutter pub get
+    ```
+
+4. **Run the App:**
+    ```bash
+    flutter run
+    ```
